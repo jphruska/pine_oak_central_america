@@ -1,0 +1,6 @@
+# rename the samples for compatability with the cluster array jobs
+
+cd /Volumes/hruska_1/nicaragua_honduras_pine_oak/raw_fastq
+while read -r name1 name2; do
+	mv $name1 $name2
+done < rename_samples_nh_pine_oak.txt
