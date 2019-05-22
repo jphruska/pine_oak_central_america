@@ -1,3 +1,7 @@
+### beware that it is advisable to extract mtDNA reads from one individual first (only run on first sample), which builds the reference it will use ##
+## if this precaution is not taken, some of the jobs may fail ## 
+
+
 #!/bin/sh
 #$ -V
 #$ -cwd
