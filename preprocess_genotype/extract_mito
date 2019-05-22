@@ -1,0 +1,19 @@
+#!/bin/sh
+#$ -V
+#$ -cwd
+#$ -S /bin/bash
+#$ -N nicaragua_mt
+#$ -q omni
+#$ -pe sm 1
+#$ -P quanah
+#$ -l h_rt=48:00:00
+#$ -l h_vmem=8G
+#$ -t 1-25
+
+/lustre/work/jmanthey/bbmap/bbsplit.sh \
+in1=/lustre/scratch/johruska/nicaragua_honduras_pine_oak/nicaragua_honduras_pine_oak/renamed_raw_fastq/${SGE_TASK_ID}_R1.fastq.gz \
+in2=/lustre/scratch/johruska/nicaragua_honduras_pine_oak/nicaragua_honduras_pine_oak/renamed_raw_fastq/${SGE_TASK_ID}_R2.fastq.gz \
+ref=/lustre/scratch/jmanthey/01_certhia_genomics/bird_mitogenomes.fasta \
+basename=/lustre/scratch/johruska/nicaragua_honduras_pine_oak/nicaragua_honduras_pine_oak/no_mt_dna/${SGE_TASK_ID}%.fastq.gz \
+outu1=/lustre/scratch/johruska/nicaragua_honduras_pine_oak/nicaragua_honduras_pine_oak/no_mt_dna/${SGE_TASK_ID}_R1.fastq.gz \
+outu2=/lustre/scratch/johruska/nicaragua_honduras_pine_oak/nicaragua_honduras_pine_oak/no_mt_dna/${SGE_TASK_ID}_R2.fastq.gz
