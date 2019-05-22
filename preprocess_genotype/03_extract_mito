@@ -8,7 +8,7 @@
 #$ -P quanah
 #$ -l h_rt=48:00:00
 #$ -l h_vmem=8G
-#$ -t 1-25
+#$ -t 1-20
 
 /lustre/work/jmanthey/bbmap/bbsplit.sh \
 in1=/lustre/scratch/johruska/nicaragua_honduras_pine_oak/nicaragua_honduras_pine_oak/renamed_raw_fastq/${SGE_TASK_ID}_R1.fastq.gz \
