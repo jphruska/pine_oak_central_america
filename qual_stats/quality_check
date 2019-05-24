@@ -1,0 +1,6 @@
+## run on mantheylab2 ## 
+## make output folder prior to running command ## 
+# generate quality reports
+cd /Volumes/hruska_1/nicaragua_honduras_pine_oak/
+fastqc -o 01b_quality -t 12 00_raw_fastq/*fastq.gz
+multiqc 01b_quality
