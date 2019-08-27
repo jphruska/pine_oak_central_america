@@ -1,0 +1,16 @@
+### Instead of using the BBduk/Geneious pipeline (I had limited success obtaining de novo full-length genomes, even when using millions of reads) to extract mitochondrial genomes from WGS data. 
+
+### Here, I will attempt to use the mitoBIM (mitochondrial baiting and iterative mapping) pipeline to assemble full-length mitochondrial genomes for the Nicaragua samples. My intention here is to use markers from the mitochondria (e.g., ND2) to conduct preliminary assessments of population structure, by combining these data with existing data, and carry out haplotype network analyses. 
+
+### I will employ the "Quick" option, up to 40 iterations, with a full mitochondrial genome as a reference. Each taxa will have its own reference genome. This will be carried out with herons, as an example, but can be employed for any taxa of your choosing. 
+
+### This work largely follows the following tutorial (https://github.com/chrishah/MITObim). Tutorial 2 to be specific. 
+
+### Installation. Initial attempts to install on HPCC failed (permission issue kept cropping up). Subsequent attempt will be carrried out on the desktop in the lab (Mantheylab2). 
+
+### Note about input data. Reads need to interleaved and in fastq format. 
+
+### If using option II (quick), reference must be in fasta format. 
+
+
+
