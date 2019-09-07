@@ -2,7 +2,7 @@
 #$ -V
 #$ -cwd
 #$ -S /bin/bash
-#$ -N geothlypis_clean_bwa_align
+#$ -N troglodytes_clean_bwa_align
 #$ -q omni
 #$ -pe sm 6
 #$ -P quanah
