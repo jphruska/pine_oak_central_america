@@ -1,0 +1,5 @@
+M_formicivorus_KU8974 11
+M_formicivorus_KU8976 12
+M_formicivorus_KU33511  13
+M_formicivorus_KU33599  14
+M_formicivorus_KU33614  15
