@@ -4,7 +4,7 @@
 	
 	project_directory <- "/lustre/scratch/johruska/central_america_pine_oak/troglodytes"
 	directory_name <- "troglodytes_genotype"
-	reference_genome_location <- "/home/johruska/central_america_pine_oak/passer_ref"
+	reference_genome_location <- "/home/johruska/central_america_pine_oak/passer_ref/GCA_003957565.2_bTaeGut1_v1.p_genomic.fasta"
 	queue <- "omni"
 	cluster <- "quanah"
 	output_name <- "troglodytes_genotype"
@@ -89,7 +89,7 @@
 		write(paste("#$ -P ", cluster, sep=""), file=a.script, append=T)
 		write("#$ -l h_rt=48:00:00", file=a.script, append=T)
 		write("#$ -l h_vmem=10G", file=a.script, append=T)
-		write(paste("#$ -t 1:", nrow(individuals), sep=""), file=a.script, append=T)
+		write(paste("#$ -t 16:20", sep=""), file=a.script, append=T)
 		write("", file=a.script, append=T)
 		write("module load intel java", file=a.script, append=T)
 		write("", file=a.script, append=T)
