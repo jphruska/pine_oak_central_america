@@ -1,0 +1,5 @@
+A_cyanocephala_KU33357  1
+A_cyanocephala_KU33365  2
+A_cyanocephala_KU33411  3
+A_cyanocephala_KU33558  4
+A_cyanocephala_KU33567  5
