@@ -2,7 +2,7 @@
 #$ -V
 #$ -cwd
 #$ -S /bin/bash
-#$ -N amazilia_clean_bwa_align_superscaffold_1
+#$ -N amazilia_bwa_align_superscaffold_1
 #$ -q omni
 #$ -pe sm 6
 #$ -P quanah
@@ -12,26 +12,26 @@
 
 module load intel java bwa samtools
 
-bwa mem -t 6 /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/ref/Superscaffold.fasta /lustre/scratch/johruska/central_america_pine_oak/amazilia_clean/${SGE_TASK_ID}_R1.fastq.gz /lustre/scratch/johruska/central_america_pine_oak/amazilia_clean/${SGE_TASK_ID}_R2.fastq.gz > /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}.sam
+bwa mem -t 6 /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/ref/Superscaffold_1.fasta /lustre/scratch/johruska/central_america_pine_oak/amazilia/amazilia_clean/${SGE_TASK_ID}_R1.fastq.gz /lustre/scratch/johruska/central_america_pine_oak/amazilia/amazilia_clean/${SGE_TASK_ID}_R2.fastq.gz > /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}.sam
 
-samtools view -b -S -o /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}.bam /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}.sam
+samtools view -b -S -o /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}.bam /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}.sam
 
-rm /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}.sam
+rm /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}.sam
 
-/lustre/work/jmanthey/gatk-4.0.2.1/gatk CleanSam -I /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}.bam -O /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned.bam
+/lustre/work/jmanthey/gatk-4.0.2.1/gatk CleanSam -I /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}.bam -O /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned.bam
 
-rm /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}.bam
+rm /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}.bam
 
-/lustre/work/jmanthey/gatk-4.0.2.1/gatk SortSam -I /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned.bam -O /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned_sorted.bam --SORT_ORDER coordinate
+/lustre/work/jmanthey/gatk-4.0.2.1/gatk SortSam -I /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned.bam -O /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned_sorted.bam --SORT_ORDER coordinate
 
-rm /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned.bam
+rm /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned.bam
 
-/lustre/work/jmanthey/gatk-4.0.2.1/gatk AddOrReplaceReadGroups -I /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned_sorted.bam -O /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned_sorted_rg.bam --RGLB 1 --RGPL illumina --RGPU unit1 --RGSM ${SGE_TASK_ID}
+/lustre/work/jmanthey/gatk-4.0.2.1/gatk AddOrReplaceReadGroups -I /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned_sorted.bam -O /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned_sorted_rg.bam --RGLB 1 --RGPL illumina --RGPU unit1 --RGSM ${SGE_TASK_ID}
 
-rm /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned_sorted.bam
+rm /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned_sorted.bam
 
-/lustre/work/jmanthey/gatk-4.0.2.1/gatk MarkDuplicates --REMOVE_DUPLICATES true --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 100 -M /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_markdups_metric_file.txt -I /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned_sorted_rg.bam -O /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_final.bam
+/lustre/work/jmanthey/gatk-4.0.2.1/gatk MarkDuplicates --REMOVE_DUPLICATES true --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 100 -M /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_markdups_metric_file.txt -I /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned_sorted_rg.bam -O /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_final.bam
 
-rm /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_cleaned_sorted_rg.bam
+rm /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_cleaned_sorted_rg.bam
 
-samtools index /lustre/scratch/johruska/central_america_pine_oak/msmc/amazilia/bam/${SGE_TASK_ID}_final.bam
+samtools index /lustre/scratch/johruska/central_america_pine_oak/amazilia/msmc/bam/${SGE_TASK_ID}_final.bam
