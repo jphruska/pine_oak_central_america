@@ -1,0 +1,7 @@
+Workflow for handling of Belize toepad samples. 
+
+1. Use bbplit.sh to extract reads that match to Calypte anna reference, from the following samples: D2S10010, E2S101252, F2S10268. 
+
+## Code 
+
+#D2S10010
