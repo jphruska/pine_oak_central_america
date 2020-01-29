@@ -1,7 +1,19 @@
 Workflow for handling of Belize toepad samples. 
 
-1. Use bbplit.sh to extract reads that match to Calypte anna reference, from the following samples: D2S10010, E2S101252, F2S10268. 
+1. Use bbplit.sh to extract reads that match to Calypte anna reference, from the following samples: D2S10010, E2S101252, F2S10268.
+2. Use reformat.sh to de-interleave output (reads that match to reference). 
 
 ## Code 
 
+
+
+### De-interleaving 
+
 #D2S10010
+reformat.sh in=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019.fastq.gz out1=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019_D2S10010_R1.fastq out2=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019_D2S10010_R2.fastq
+
+#E2S101252
+reformat.sh in=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019.fastq.gz out1=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019_E2S101252_R1.fastq out2=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019_E2S101252_R2.fastq
+
+#F2S10268
+reformat.sh in=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019.fastq.gz out1=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019_F2S10268_R1.fastq out2=bCalAnn1.pri.cur.20181019bCalAnn1.pri.cur.20181019_F2S10268_R2.fastq
