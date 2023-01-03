@@ -1,5 +1,0 @@
-G_poliocephala_KU9041 6 
-G_poliocephala_KU25093  7
-G_poliocephala_KU33403  8
-G_poliocephala_KU33414  9
-G_poliocephala_KU33542  10
