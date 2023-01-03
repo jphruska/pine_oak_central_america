@@ -1,0 +1,50 @@
+## Combine vcf files belonging to each chromosome. Genotyping of chromosomes was done on sections for speed. 
+
+## Move all the vcf files to a folder called combined_vcfs
+
+mkdir combined_vcfs
+
+scp *.vcf combined_vcfs
+
+## List of chromosomes that require combining. 
+
+Ca.s10.3A.g.vcf
+Ca.s11.1B.g.vcf
+Ca.s1.1.g.vcf
+Ca.s1.1b.g.vcf
+Ca.s12.8.g.vcf
+Ca.s13.2A.g.vcf
+Ca.s14.g.vcf
+Ca.s15.2B.g.vcf
+Ca.s16.9.g.vcf
+Ca.s17.1C.g.vcf
+Ca.s18.12.g.vcf
+Ca.s19.10.g.vcf
+Ca.s20.4A.g.vcf
+Ca.s21.13.g.vcf
+Ca.s22.11.g.vcf
+Ca.s23.18.g.vcf
+Ca.s24.2C.g.vcf
+Ca.s25.14.g.vcf
+Ca.s26.5A.g.vcf
+Ca.s27.4B.g.vcf
+Ca.s28.3B.g.vcf
+Ca.s29.20.g.vcf
+Ca.s2.Z.g.vcf
+Ca.s30.1D.g.vcf
+Ca.s3.1A.g.vcf
+Ca.s31.g.vcf
+Ca.s32.g.vcf
+Ca.s33.g.vcf
+Ca.s34.g.vcf
+Ca.s35.g.vcf
+Ca.s36.g.vcf
+Ca.s37.g.vcf
+Ca.s4.3.g.vcf
+Ca.s5.2.g.vcf
+Ca.s6.5.g.vcf
+Ca.s7.7.g.vcf
+Ca.s8.6.g.vcf
+Ca.s9.4.g.vcf
+
+# First need to combine Ca.s1.1 and Ca.s1.1b individually, and then combine them into one resulting vcf (Ca.s1.1). 
