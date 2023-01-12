@@ -1,1 +1,48 @@
+## Combine vcf files belonging to each chromosome. Genotyping of chromosomes was done on sections for speed. 
 
+## Move all the vcf files to a folder called combined_vcfs
+
+mkdir combined_vcfs
+
+scp *.vcf combined_vcfs
+
+## List of chromosomes that require combining. 
+
+CM027507.1__
+CM027507.1b__
+CM027508.1__
+CM027508.1b__
+CM027509.1__
+CM027509.1b__
+CM027510.1__
+CM027511.1__
+CM027512.1__
+CM027513.1__
+CM027514.1__
+CM027515.1__
+CM027516.1__
+CM027517.1__
+CM027518.1__
+CM027519.1__
+CM027520.1__
+CM027521.1__
+CM027522.1__
+CM027523.1__
+CM027524.1__
+CM027525.1__
+CM027535.1__
+CM027536.1__
+CM027537.1__
+
+# First need to combine Ca.s1.1 and Ca.s1.1b individually, and then combine them into one resulting vcf (Ca.s1.1). 
+
+# remove all partial chromosome vcfs
+rm *__*
+
+# combine those chromosomes that were split
+
+grep -v "#" Ca.s1.1b.g.vcf >> Ca.s1.1.g.vcf
+
+# remove 'b' vcf 
+
+rm Ca.s1.1b.g.vcf
