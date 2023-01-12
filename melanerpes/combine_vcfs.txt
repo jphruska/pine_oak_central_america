@@ -48,3 +48,14 @@ Ca.s8.6.g.vcf
 Ca.s9.4.g.vcf
 
 # First need to combine Ca.s1.1 and Ca.s1.1b individually, and then combine them into one resulting vcf (Ca.s1.1). 
+
+# remove all partial chromosome vcfs
+rm *__*
+
+# combine those chromosomes that were split
+
+grep -v "#" Ca.s1.1b.g.vcf >> Ca.s1.1.g.vcf
+
+# remove 'b' vcf 
+
+rm Ca.s1.1b.g.vcf
