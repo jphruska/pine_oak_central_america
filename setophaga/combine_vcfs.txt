@@ -34,7 +34,7 @@ CM027535.1__
 CM027536.1__
 CM027537.1__
 
-# First need to combine Ca.s1.1 and Ca.s1.1b individually, and then combine them into one resulting vcf (Ca.s1.1). 
+# First need to combine CM027507.1, CM027508.1 and CM027509.1 individually, and then combine them each into one resulting vcf. 
 
 # remove all partial chromosome vcfs
 rm *__*
