@@ -1,1 +1,53 @@
+## Combine vcf files belonging to each chromosome. Genotyping of chromosomes was done on sections for speed. 
 
+## Move all the vcf files to a folder called combined_vcfs
+
+mkdir combined_vcfs
+
+scp *.vcf combined_vcfs
+
+## List of chromosomes that require combining. 
+
+CM019901.1__
+CM019901.1b__
+CM019902.1__
+CM019902.1b__
+CM019903.1__
+CM019903.1b__
+CM019904.1__
+CM019905.1__
+CM019906.1__
+CM019907.1__
+CM019908.1__
+CM019909.1__
+CM019910.1__
+CM019911.1__
+CM019912.1__
+CM019913.1__
+CM019914.1__
+CM019915.1__
+CM019916.1__
+CM019917.1__
+CM019918.1__
+CM019919.1__
+CM019920.1__
+CM019921.1__
+CM019933.1__
+CM019934.1__
+
+# First need to combine CM019901.1, CM019902.1, and CM019903.1 individually, and then combine them each into one resulting vcf. 
+
+# remove all partial chromosome vcfs
+rm *__*
+
+# combine those chromosomes that were split
+
+grep -v "#" CM019901.1b.g.vcf >> CM019901.1.g.vcf
+grep -v "#" CM019902.1b.g.vcf >> CM019902.1.g.vcf
+grep -v "#" CM019903.1b.g.vcf >> CM019903.1.g.vcf
+
+# remove 'b' vcf 
+
+rm CM019901.1b.g.vcf
+rm CM019902.1b.g.vcf
+rm CM019903.1b.g.vcf
