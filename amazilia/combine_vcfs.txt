@@ -1,0 +1,56 @@
+## Combine vcf files belonging to each chromosome. Genotyping of chromosomes was done on sections for speed. 
+
+## Move all the vcf files to a folder called combined_vcfs
+
+mkdir combined_vcfs
+
+scp *.vcf combined_vcfs
+
+## List of chromosomes that require combining. 
+
+NC_044244.1__
+NC_044244.1b__
+NC_044245.1__
+NC_044245.1b__
+NC_044246.1__
+NC_044246.1b__
+NC_044247.1__
+NC_044248.1__
+NC_044249.1__
+NC_044250.1__
+NC_044251.1__
+NC_044252.1__
+NC_044253.1__
+NC_044254.1__
+NC_044255.1__
+NC_044256.1__
+NC_044257.1__
+NC_044258.1__
+NC_044259.1__
+NC_044260.1__
+NC_044261.1__
+NC_044262.1__
+NC_044263.1__
+NC_044264.1__
+NC_044265.1__
+NC_044274.1__
+NC_044276.1__
+
+# First need to combine NC_044244.1, NC_044245.1, and NC_044246.1 individually, and then combine them each into one resulting vcf. 
+
+Run 00_cat_vcf.sh, which uses vcf_cat.txt as input. 
+
+# remove all partial chromosome vcfs
+rm *__*
+
+# combine those chromosomes that were split
+
+grep -v "#" NC_044244.1b.g.vcf >> NC_044244.1.g.vcf
+grep -v "#" NC_044245.1b.g.vcf >> NC_044245.1.g.vcf
+grep -v "#" NC_044246.1b.g.vcf >> NC_044246.1.g.vcf
+
+# remove 'b' vcf 
+
+rm NC_044244.1b.g.vcf
+rm NC_044245.1b.g.vcf
+rm NC_044246.1b.g.vcf
